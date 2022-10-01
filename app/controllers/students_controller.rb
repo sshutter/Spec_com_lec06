@@ -17,6 +17,7 @@ class StudentsController < ApplicationController
 
   # GET /students/1/edit
   def edit
+   
   end
 
   # POST /students or /students.json
@@ -60,6 +61,16 @@ class StudentsController < ApplicationController
   # Edit student's score
   def edit_score
     @that_name = @student.name
+    @scores = Score.where(student_id: @student.id)
+
+    @max_score = 0
+    @avg_score = 0
+    @scores.each do |score|
+      @avg_score += score.point.to_i
+      if score.point.to_i > @max_score
+        @max_score = score.point.to_i
+      end
+    end  
   end
 
   private

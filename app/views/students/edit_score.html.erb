@@ -1,1 +1,19 @@
-<%= "#{@that_name}'s scores" %>
+<h1><%= "#{@that_name}'s scores" %></h1>
+<h2>
+  <%= "max score: #{@max_score}" %><br>
+  <%= "average score: #{@avg_score}" %>
+</h2>
+
+<div id="scores">
+  <% @scores.each do |score| %>
+    <%= render score %>
+    
+    <p>
+      <%= button_to "Edit this score", edit_score_path(score), method: :get %>
+      <%= button_to "Delete this score", score, method: :delete %> 
+    </p>
+  <% end %>
+</div>
+<%= button_to "Add score", new_score_path, method: :get %>
+
+
