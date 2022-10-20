@@ -60,6 +60,7 @@ class StudentsController < ApplicationController
 
   # Edit student's score
   def edit_score
+    session[:from] = "student"
     @that_name = @student.name
     @scores = Score.where(student_id: @student.id)
 

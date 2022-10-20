@@ -8,6 +8,7 @@ class ScoresController < ApplicationController
 
   # GET /scores/1 or /scores/1.json
   def show
+    session[:from] = "scores"
   end
 
   # GET /scores/new
@@ -17,9 +18,9 @@ class ScoresController < ApplicationController
 
   # GET /scores/1/edit
   def edit
+
   end
 
-  # POST /scores or /scores.json
   def create
     @score = Score.new(score_params)
 

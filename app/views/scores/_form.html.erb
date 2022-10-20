@@ -27,8 +27,10 @@
   </div>
 
   <div>
-    <%= form.label :student_id, style: "display: block" %>
-    <%= form.text_field :student_id %>
+    <% if session[:from] != "student" %>
+      <%= form.label :student_id, style: "display: block" %>
+      <%= form.text_field :student_id %>
+    <% end %>
   </div>
 
   <div>
