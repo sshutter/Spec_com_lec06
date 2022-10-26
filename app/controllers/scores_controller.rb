@@ -17,9 +17,6 @@ class ScoresController < ApplicationController
   def new
     @score = Score.new
     @stu_id = params[:stu_id]
-    if @stu_id.blank?
-      @bb = "pong"
-    end
   end
 
   # GET /scores/1/edit
