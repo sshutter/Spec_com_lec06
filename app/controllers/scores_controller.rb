@@ -22,6 +22,7 @@ class ScoresController < ApplicationController
   # GET /scores/1/edit
   def edit
     # session[:from] = "scores"
+    @stu_id = params[:this_id]
   end
 
   def create

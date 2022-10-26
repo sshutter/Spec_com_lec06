@@ -76,6 +76,7 @@ class StudentsController < ApplicationController
         @max_score = score.point.to_i
       end
     end  
+
   end
 
   private

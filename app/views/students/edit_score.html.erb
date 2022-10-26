@@ -10,7 +10,7 @@
       <%= render score %>
     </div>
     
-    <%= button_to "Edit this score", edit_score_path(score), method: :get, class:"btn btn-dark mb-1" %>
+    <%= button_to "Edit this score", edit_score_path(score), params:{this_id: score.student_id}, method: :get, class:"btn btn-dark mb-1" %>
     <%= button_to "Delete this score", score, method: :delete, class:"btn btn-dark mb-3" %> 
   <% end %>
 </div>
