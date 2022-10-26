@@ -11,27 +11,27 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="mb-3">
+    <%= form.label :name, style: "display: block", class:"form-label" %>
+    <%= form.text_field :name, class:"form-control" %>
   </div>
 
-  <div>
-    <%= form.label :dob, style: "display: block" %>
-    <%= form.date_field :dob %>
+  <div class="mb-3">
+    <%= form.label :dob, style: "display: block", class:"form-label" %>
+    <%= form.date_field :dob, class:"form-control" %>
   </div>
 
-  <div>
-    <%= form.label :student_no, style: "display: block" %>
-    <%= form.text_field :student_no %>
+  <div class="mb-3">
+    <%= form.label :student_no, style: "display: block", class:"form-label" %>
+    <%= form.text_field :student_no, class:"form-control" %>
   </div>
 
-  <div>
-    <%= form.label :class_year, style: "display: block" %>
-    <%= form.number_field :class_year %>
+  <div class="mb-3">
+    <%= form.label :class_year, style: "display: block", class:"form-label" %>
+    <%= form.number_field :class_year, class:"form-control" %>
   </div>
-
-  <div>
-    <%= form.submit %>
+  
+  <div class="mb-3">
+    <%= form.submit nil, class:"btn btn-dark" %>
   </div>
 <% end %>

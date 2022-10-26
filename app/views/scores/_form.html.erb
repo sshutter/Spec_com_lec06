@@ -11,29 +11,31 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :subject, style: "display: block" %>
-    <%= form.text_field :subject %>
+  <div class="mb-3">
+    <%= form.label :subject, style: "display: block", class:"form-label" %>
+    <%= form.text_field :subject, class:"form-control" %>
   </div>
 
-  <div>
-    <%= form.label :point, style: "display: block" %>
-    <%= form.number_field :point %>
+  <div class="mb-3">
+    <%= form.label :point, style: "display: block", class:"form-label" %>
+    <%= form.number_field :point, class:"form-control" %>
   </div>
 
-  <div>
-    <%= form.label :grade, style: "display: block" %>
-    <%= form.text_field :grade %>
+  <div class="mb-3">
+    <%= form.label :grade, style: "display: block", class:"form-label" %>
+    <%= form.text_field :grade, class:"form-control" %>
   </div>
 
-  <div>
-    <% if session[:from] != "student" %>
-      <%= form.label :student_id, style: "display: block" %>
-      <%= form.text_field :student_id %>
+  <div class="mb-3">
+    <% if session[:from] == "scores" %>
+      <%= form.label :student_id, style: "display: block", class:"form-label" %>
+      <%= form.text_field :student_id, class:"form-control" %>
+    <% elsif session[:from] == "student" %>
+      <%= form.hidden_field :student_id, value: @stu_id %>
     <% end %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="mb-3">
+    <%= form.submit nil, class:"btn btn-dark" %>
   </div>
 <% end %>

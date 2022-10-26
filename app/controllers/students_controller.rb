@@ -1,4 +1,6 @@
 class StudentsController < ApplicationController
+  before_action :must_logged_in
+  skip_before_action :must_logged_in, only: [:show, :edit_score]
   before_action :set_student, only: %i[ show edit update destroy edit_score ]
 
   # GET /students or /students.json
@@ -61,8 +63,10 @@ class StudentsController < ApplicationController
   # Edit student's score
   def edit_score
     session[:from] = "student"
+    
     @that_name = @student.name
     @scores = Score.where(student_id: @student.id)
+    @this_stu_id = @student.id
 
     @max_score = 0
     @avg_score = 0

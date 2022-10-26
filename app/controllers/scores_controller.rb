@@ -1,24 +1,30 @@
 class ScoresController < ApplicationController
+  before_action :must_logged_in
   before_action :set_score, only: %i[ show edit update destroy ]
 
   # GET /scores or /scores.json
   def index
     @scores = Score.all
+    session[:from] = "scores"
   end
 
   # GET /scores/1 or /scores/1.json
   def show
-    session[:from] = "scores"
+    # session[:from] = "scores"
   end
 
   # GET /scores/new
   def new
     @score = Score.new
+    @stu_id = params[:stu_id]
+    if @stu_id.blank?
+      @bb = "pong"
+    end
   end
 
   # GET /scores/1/edit
   def edit
-
+    # session[:from] = "scores"
   end
 
   def create

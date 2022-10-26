@@ -1,18 +1,18 @@
 <h1><%= "#{@that_name}'s scores" %></h1>
-<h2>
+<h2 class="mb-3">
   <%= "max score: #{@max_score}" %><br>
   <%= "average score: #{@avg_score}" %>
 </h2>
 
 <div id="scores">
   <% @scores.each do |score| %>
-    <%= render score %>
+    <div>
+      <%= render score %>
+    </div>
     
-    <p>
-      <%= button_to "Edit this score", edit_score_path(score), method: :get %>
-      <%= button_to "Delete this score", score, method: :delete %> 
-    </p>
+    <%= button_to "Edit this score", edit_score_path(score), method: :get, class:"btn btn-dark mb-1" %>
+    <%= button_to "Delete this score", score, method: :delete, class:"btn btn-dark mb-3" %> 
   <% end %>
 </div>
-<%= button_to "Add score", new_score_path, method: :get %>
-<%= button_to "Back to All students", students_path, method: :get %>
+<div class="mb-1"><%= button_to "Add score", new_score_path, params:{stu_id: @this_stu_id}, method: :get, class:"btn btn-dark" %></div>
+<div class="mb-1"><%= button_to "Back to All students", students_path, method: :get, class:"btn btn-dark" %></div>

@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+    before_action :my_debug
+
     private
         def is_login?
             return session[:logged_in] == true
@@ -8,8 +10,11 @@ class ApplicationController < ActionController::Base
             if is_login?
                 return true
             else 
-                redirect_to 'main/login', notice: 'You must login before accessing this page.'
+                redirect_to main_login_path, alert: 'You must login before accessing this page.'
             end
         end
-    
+        def my_debug
+            pp '-------------------------------------------'
+            pp session.to_h
+        end
 end
